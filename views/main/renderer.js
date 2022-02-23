@@ -38,14 +38,14 @@ function createStage() {
     //renderer
     renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(canvasWidth, canvasHeight);
-    document.body.appendChild(renderer.domElement);
+    document.getElementById('mesh').appendChild(renderer.domElement);
 
 }
 
 function setControls() {
     //controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.autoRotate = true;
+    // controls.autoRotate = true;
     controls.enableZoom = false;
     controls.enablePan = false;
 }

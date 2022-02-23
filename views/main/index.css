@@ -3,15 +3,113 @@ body {
     padding: 0px;
 }
 
-header {
+.header {
     background-color: 0xf26b8a;
-    width: 120%;
+    width: 100%;
 }
 
-h1 {
+.header>h1 {
     color: white;
     font-size: 300%;
     position: absolute;
     margin-left: 53%;
-    margin-top: 15%;
+    margin-top: -30%;
+    z-index: 1;
+}
+
+.categories {
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+
+/*grid container*/
+
+.tables {
+    grid-area: tables;
+}
+
+.chairs {
+    grid-area: chairs;
+}
+
+.beds {
+    grid-area: beds;
+}
+
+.sofas {
+    grid-area: sofas;
+}
+
+.wardrobes {
+    grid-area: wardrobes;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 'wardrobes tables tables chairs chairs' 'wardrobes beds beds sofas sofas' 'wardrobes beds beds sofas sofas';
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-container>div {
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/*grid divisions*/
+
+.grid-container>div.tables {
+    background-color: #adcbe3;
+}
+
+.grid-container>div.chairs {
+    background-color: #fec8c1;
+}
+
+.grid-container>div.beds {
+    background-color: #83d0c9;
+}
+
+.grid-container>div.sofas {
+    background-color: #ffeaa2;
+}
+
+.grid-container>div.wardrobes {
+    background-color: #fad9c1;
+}
+
+
+/*grid img*/
+
+img.tables {
+    width: 130px;
+}
+
+img.chairs {
+    width: 130px;
+}
+
+img.beds {
+    width: 180px;
+}
+
+img.sofas {
+    width: 220px;
+}
+
+img.wardrobes {
+    width: 250px;
+}
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.1);
 }
