@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    background-color: 0xf26b8a;
+    width: 120%;
+}
+
+h1 {
+    color: white;
+    font-size: 300%;
+    position: absolute;
+    margin-left: 53%;
+    margin-top: 15%;
+}
