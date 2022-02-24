@@ -9,6 +9,8 @@ app.set('view engine', 'html');
 app.engine("html", require("ejs").renderFile);
 app.set("views", [
     path.resolve(__dirname, "views/main"),
+    path.resolve(__dirname, "views/listings"),
+    path.resolve(__dirname, "views/details"),
 ]);
 
 //static paths

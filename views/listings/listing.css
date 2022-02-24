@@ -1,0 +1,42 @@
+.features {
+    width: 95%;
+    margin: auto;
+}
+
+h1 {
+    padding: 40px 15px 40px 15px;
+}
+
+
+/* carousel image slider */
+
+#controls1 {
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+#controls1 .carousel-control-prev,
+#controls1 .carousel-control-next {
+    width: 22px;
+    height: 35px;
+    top: auto;
+    bottom: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: black;
+}
+
+#inner1 {
+    margin: auto;
+    width: 85%;
+}
+
+img {
+    float: left;
+    padding: 10px;
+    width: 250px;
+    height: 250px;
+}
