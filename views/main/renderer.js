@@ -52,7 +52,7 @@ function setControls() {
 
 function renderMesh() {
     let loader = new THREE.GLTFLoader();
-    loader.load('../../assets/models/armchair/scene.gltf', function(gltf) {
+    loader.load('../../assets/models/main_feature/scene.gltf', function(gltf) {
         mesh = gltf.scene.children[0];
         mesh.position.set(-30, -20, 0);
         mesh.scale.set(0.7, 0.7, 0.7);
@@ -65,6 +65,7 @@ function renderMesh() {
 
     });
 }
+
 
 function animate() {
     renderer.render(scene, camera);

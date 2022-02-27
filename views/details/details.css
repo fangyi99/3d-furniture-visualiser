@@ -1,0 +1,36 @@
+canvas {
+    border-radius: 5px;
+}
+
+.panel {
+    float: right;
+    width: 23%;
+    height: 92.5vh;
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+#parts {
+    width: 100%;
+    height: 70vh;
+    overflow: scroll;
+    margin-bottom: 30px;
+}
+
+.part {
+    padding: 5px;
+}
+
+.part:hover {
+    background-color: rgba(255, 255, 255, 0.808);
+    cursor: pointer;
+}
+
+button {
+    border: black solid 1px;
+    border-radius: 50%;
+    padding: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}

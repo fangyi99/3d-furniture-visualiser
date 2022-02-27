@@ -1,15 +1,27 @@
 const products = [
-    { id: 1, name: "Birch Stool", category: "chairs", img: "https://www.ikea.com/sg/en/images/products/kyrre-stool-birch__0714153_pe729952_s5.jpg?f=s", model: "" },
-    { id: 2, name: "Birch Armchair", category: "chairs", img: "https://www.ikea.com/sg/en/images/products/poaeng-armchair-birch-veneer-knisa-light-beige__0571500_pe666933_s5.jpg?f=s", model: "" },
-    { id: 3, name: "Gunnared Recliner", category: "chairs", img: "https://www.ikea.com/sg/en/images/products/ekolsund-recliner-gunnared-dark-grey__0709891_pe727153_s5.jpg?f=s", model: "" },
-    { id: 4, name: "Samsta Corner Section Sofa", category: "sofas", img: "https://www.ikea.com/sg/en/images/products/soederhamn-corner-section-cover-samsta-dark-grey__0141356_pe301240_s5.jpg?f=s", model: "" },
-    { id: 5, name: "Wing Chair", category: "chairs", img: "https://www.ikea.com/sg/en/images/products/strandmon-wing-chair-skiftebo-yellow__0325450_pe517970_s5.jpg?f=s", model: "" },
-    { id: 6, name: "Ritchie Armchair", category: "chairs", img: "https://res.cloudinary.com/castlery/image/private/w_700,f_auto,q_auto/b_rgb:F3F3F3,c_fit/v1624964136/crusader/variants/T50440583-PL4001-NA/Capella-Armchair-Light-Gray-Natural-Leg.jpg", model: "" },
-    { id: 7, name: "Corner Sofa with Storage", category: "sofas", img: "https://www.ikea.com/sg/en/images/products/friheten-corner-sofa-bed-with-storage-skiftebo-dark-grey__0175610_pe328883_s5.jpg", model: "" },
-    { id: 8, name: "Miggy 2 Door Wardrobe", category: "wardrobes", img: "https://www.fortytwo.sg/media/catalog/product/cache/1/image/600x870/040ec09b1e35df139433887a97daa66f/w/e/wenge_miggy_1.jpg", model: "" },
-    { id: 9, name: "2 Door Armoire Wardrobe", category: "wardrobes", img: "https://i.pinimg.com/originals/e9/b4/ee/e9b4ee42131d21cc2fbbafbeaf5d48dd.jpg", model: "" },
-    { id: 10, name: "Walnut Coffee Table", category: "tables", img: "https://i.ytimg.com/vi/IY02nJQezSw/maxresdefault.jpg", model: "" }
-]
+    { id: 1, name: "Modern Armchair", category: "chairs", img: "https://img-new.cgtrader.com/items/2654307/cab899a309/grey-modern-armchair-3d-model-obj-stl-gltf.jpg", model: "chair1.glb" },
+    { id: 2, name: "Kitchen chair", category: "chairs", img: "https://img1.cgtrader.com/items/2966728/bdf56ed557/kitchen-chair-low-poly-3d-model-low-poly-obj-fbx-stl-blend-gltf.jpg", model: "chair2.glb" },
+    { id: 3, name: "Wooden Cabinet", category: "wardrobes", img: "https://img-new.cgtrader.com/items/3089911/4a999670e7/3d-wooden-cabinet-3d-model-rigged-max-obj-fbx-gltf.jpg", model: "wardrobe1.glb" },
+    { id: 4, name: "Modern Sofa", category: "sofas", img: "https://img2.cgtrader.com/items/2784986/aa0bf58d9b/a-modern-sofa-set-3d-model-low-poly-fbx-blend-dae-gltf.jpg", model: "sofa1.gltf" },
+    { id: 5, name: "Burrow Nomad Ottoman", category: "chairs", img: "https://img2.cgtrader.com/items/2943547/de8124bc55/burrow-nomad-ottoman-3d-model-low-poly-obj-fbx-stl-blend-dae-abc.jpg", model: "chair4.glb" },
+    { id: 6, name: "Dining Armchair", category: "chairs", img: "https://img1.cgtrader.com/items/3534240/6f638f63e6/dining-chair-3d-model-low-poly-obj-fbx-stl-blend-gltf.jpg", model: "chair5.glb" },
+    { id: 7, name: "Miggy 2 Door Wardrobe", category: "wardrobes", img: "https://www.fortytwo.sg/media/catalog/product/cache/1/image/600x870/040ec09b1e35df139433887a97daa66f/w/e/wenge_miggy_1.jpg", model: "wardrobe1.glb" },
+    { id: 8, name: "Koltuk Sofa", category: "sofas", img: "https://img2.cgtrader.com/items/3607059/d3ea550d62/free-sofa-furniture-home-blender-3d-model-obj-fbx-stl-blend-dae-abc.jpg", model: "koltuk_sofa.glb" },
+    { id: 9, name: "Office Desk", category: "tables", img: "https://img1.cgtrader.com/items/2406334/45d6181b62/office-desk-3d-model-low-poly-fbx-blend-gltf.jpg", model: "table2.gltf" },
+    { id: 10, name: "Coffee table", category: "tables", img: "https://img-new.cgtrader.com/items/3353621/7faaab9e41/coffee-table-low-poly-gameready-3d-model-low-poly-obj-fbx-stl-blend-dae-abc.jpg", model: "table1.glb" },
+    { id: 11, name: "Table", category: "tables", img: "https://img2.cgtrader.com/items/2546366/7a93388122/table-3d-model-3d-model-low-poly-obj-fbx-stl-abc-gltf.jpg", model: "table3.glb" },
+    { id: 12, name: "Chesterfield Sofa", category: "sofas", img: "https://img1.cgtrader.com/items/2722552/5bba0b9220/chesterfield-sofa-3d-model-low-poly-obj-fbx-blend-spp-gltf.jpg", model: "sofa3.glb" },
+    { id: 13, name: "Sofa", category: "sofas", img: "https://img-new.cgtrader.com/items/3220457/8b6c908069/low-polly-sofa-with-textures-3d-model-low-poly-obj-fbx-blend-dae-gltf.jpg", model: "sofa4.glb" },
+    { id: 14, name: "Checkered Sofa", category: "sofas", img: "https://img1.cgtrader.com/items/3036700/4f1ae78ae1/william-couch-3d-model-obj-fbx-stl-blend-dae-abc.jpg", model: "william_couch.glb" },
+];
+
+const colors = [
+    { color: 'f1f1f1' },
+    { color: 'e8c060' },
+    { color: 'ea9078' },
+    { color: '153944' },
+    { color: '66533C' }
+];
 
 function listProducts(category) {
     window.location = "/listings?category=" + category;

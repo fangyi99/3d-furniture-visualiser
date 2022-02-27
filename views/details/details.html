@@ -3,15 +3,26 @@
 
 <head>
     <title>Details</title>
-    <!-- <link rel="stylesheet" href="/views/listings/listing.css"> -->
+    <link rel="stylesheet" href="/views/details/details.css">
 </head>
 
 <body>
 
-    <div>Welcome!</div>
+    <div class="panel">
+        <div id="parts">
+            <h3>Parts</h3>
+        </div>
+        <div id="palette">
+            <h3>Palette</h3>
+        </div>
+    </div>
 
+    <script src="/assets/scripts/three.min.js"></script>
+    <script src="/assets/scripts/GLTFLoader.js"></script>
+    <script src="/assets/scripts/OrbitControls.js"></script>
     <script src="/views/main/index.js"></script>
     <script src="/views/details/details.js"></script>
+    <script src="/views/details/renderer.js"></script>
 
 </body>
 
