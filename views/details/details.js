@@ -1,6 +1,7 @@
 let productId = new URL(window.location.href).searchParams.get("id");
 let selectedProduct = products.find((p) => p.id === parseInt(productId));
 var activePart = null;
+let parts;
 const options = document.getElementById('parts');
 const palette = document.getElementById('palette');
 
@@ -12,7 +13,6 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        console.log(content);
         if (content.style.display === "block") {
             content.style.display = "none";
         } else {
@@ -49,8 +49,7 @@ var createParts = (mesh) => {
         }
     });
 
-    const parts = document.querySelectorAll(".part");
-
+    parts = document.querySelectorAll(".part");
     for (const part of parts) {
         part.addEventListener('click', selectPart);
     }
@@ -69,10 +68,21 @@ function selectSwatch(e) {
 }
 
 function selectPart(e) {
-    let part = e.target;
-    activePart = e.target.dataset.part;
     for (const otherPart of parts) {
         otherPart.classList.remove('active');
     }
-    part.classList.add('active');
+    //check selection method
+    //raycaster selection
+    if (e.geometry) {
+        activePart = e.name;
+        //find html division
+        let htmlEle = Object.values(parts).find((d) => d.getAttribute("data-part") === activePart);
+        htmlEle.classList.add('active');
+    }
+    //panel selection
+    else {
+        let part = e.target;
+        activePart = e.target.dataset.part;
+        part.classList.add('active');
+    }
 }

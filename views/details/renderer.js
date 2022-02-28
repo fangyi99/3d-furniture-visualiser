@@ -1,6 +1,8 @@
 let scene, camera, renderer, controls;
 let canvasWidth = window.innerWidth * 0.72;
 let canvasHeight = window.innerHeight * 0.97;
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
 var mesh;
 
 function init() {
@@ -48,6 +50,10 @@ function setControls() {
     //controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.enablePan = false;
+
+    renderer.domElement.addEventListener("click", (event) => {
+        raycastSelect(event);
+    });
 }
 
 function renderMesh(callback) {
@@ -102,6 +108,19 @@ function resizeMesh(camera) {
         (camera.position.z * endDistance) / startDistance
     );
     camera.lookAt(center);
+}
+
+function raycastSelect(event) {
+    mouse.x = (event.offsetX / canvasWidth) * 2 - 1;
+    mouse.y = -(event.offsetY / canvasHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(scene.children);
+
+    if (intersects.length > 0 && intersects[0].object.type == 'Mesh') {
+        selected = intersects[0].object;
+        selectPart(selected);
+    }
 }
 
 function setDefaultColor(mesh) {
