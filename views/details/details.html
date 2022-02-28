@@ -8,12 +8,16 @@
 
 <body>
 
+    <div id="orientCubeWrapper"></div>
+
     <div class="panel">
-        <div id="parts">
-            <h3>Parts</h3>
+        <div id="partsContainer">
+            <button type="button" class="collapsible">Parts</button>
+            <div id="parts" class="content"></div>
         </div>
-        <div id="palette">
-            <h3>Palette</h3>
+        <div id="paletteContainer">
+            <button type="button" class="collapsible">Palette</button>
+            <div id="palette" class="content"></div>
         </div>
     </div>
 
@@ -22,6 +26,7 @@
     <script src="/assets/scripts/OrbitControls.js"></script>
     <script src="/views/main/index.js"></script>
     <script src="/views/details/details.js"></script>
+    <script src="/views/details/viewCube.js"></script>
     <script src="/views/details/renderer.js"></script>
 
 </body>

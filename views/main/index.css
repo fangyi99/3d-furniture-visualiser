@@ -3,8 +3,12 @@ body {
     padding: 0px;
 }
 
+.canvas {
+    border: white solid 3px;
+}
+
 .header {
-    background-color: 0xf26b8a;
+    background-color: #f26b8a;
     width: 100%;
 }
 

@@ -1,11 +1,12 @@
 let scene, camera, renderer, controls;
 let canvasWidth = window.innerWidth * 0.72;
-let canvasHeight = window.innerHeight * 0.98;
+let canvasHeight = window.innerHeight * 0.97;
 var mesh;
 
 function init() {
     createStage();
     setControls();
+    configureViewCube();
     renderMesh(createParts);
 }
 
@@ -14,8 +15,8 @@ function createStage() {
     scene = new THREE.Scene();
 
     //camera
-    camera = new THREE.PerspectiveCamera(40, canvasWidth / canvasHeight, 1, 5000);
-    camera.position.y = 30;
+    camera = new THREE.PerspectiveCamera(45, canvasWidth / canvasHeight, 1, 1000);
+    // camera.position.y = 30;
     camera.position.z = 100;
 
     //lightings
@@ -35,9 +36,10 @@ function createStage() {
     scene.add(slight);
 
     //renderer
-    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(canvasWidth, canvasHeight);
-    renderer.setClearColor(0x333333, 4);
+    renderer.setClearColor(0xffffff, 0);
+    renderer.domElement.classList.add('mainRenderer');
     document.body.appendChild(renderer.domElement);
 
 }
@@ -45,7 +47,6 @@ function createStage() {
 function setControls() {
     //controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // controls.autoRotate = true;
     controls.enablePan = false;
 }
 
@@ -53,6 +54,7 @@ function renderMesh(callback) {
     let loader = new THREE.GLTFLoader();
     loader.load('../../assets/models/' + selectedProduct.model, function(gltf) {
         mesh = gltf.scene;
+        setDefaultColor(mesh);
         resizeMesh(camera);
         centerMesh(gltf);
         scene.add(gltf.scene);
@@ -75,7 +77,7 @@ function centerMesh(gltf) {
 }
 
 function resizeMesh(camera) {
-    offset = 6;
+    offset = 3;
 
     const boundingBox = new THREE.Box3();
 
@@ -102,8 +104,33 @@ function resizeMesh(camera) {
     camera.lookAt(center);
 }
 
+function setDefaultColor(mesh) {
+    let default_mtl;
+    default_mtl = new THREE.MeshPhongMaterial({
+        color: 0xB1B1B1,
+    });
+
+    mesh.traverse((c) => {
+        c.material = default_mtl;
+    });
+
+}
+
+function setMaterial(parent, part, mtl) {
+    if (part == null) {
+        window.alert("Please select a part!");
+    }
+    parent.traverse((o) => {
+        if (o.type == 'Mesh' && o.name == part) {
+            o.material = mtl;
+        }
+    });
+}
+
 function animate() {
     renderer.render(scene, camera);
+    updateCubeCamera();
+    cubeRenderer.render(cubeScene, cubeCamera);
     requestAnimationFrame(animate);
     controls.update();
 }

@@ -1,5 +1,5 @@
 let scene, camera, renderer, controls;
-let canvasWidth = window.innerWidth;
+let canvasWidth = window.innerWidth * 0.5;
 let canvasHeight = window.innerHeight;
 
 function init() {
@@ -45,7 +45,7 @@ function createStage() {
 function setControls() {
     //controls
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    // controls.autoRotate = true;
+    controls.autoRotate = true;
     controls.enableZoom = false;
     controls.enablePan = false;
 }
@@ -54,7 +54,7 @@ function renderMesh() {
     let loader = new THREE.GLTFLoader();
     loader.load('../../assets/models/main_feature/scene.gltf', function(gltf) {
         mesh = gltf.scene.children[0];
-        mesh.position.set(-30, -20, 0);
+        mesh.position.set(0, -20, 0);
         mesh.scale.set(0.7, 0.7, 0.7);
         scene.add(gltf.scene);
         renderer.render(scene, camera);

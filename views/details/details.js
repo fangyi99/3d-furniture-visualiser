@@ -4,6 +4,23 @@ var activePart = null;
 const options = document.getElementById('parts');
 const palette = document.getElementById('palette');
 
+//create collapsibles
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        console.log(content);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+
 function createPalette(colors) {
     for (let [i, color] of colors.entries()) {
         let swatch = document.createElement('button');
@@ -22,7 +39,6 @@ function createPalette(colors) {
 createPalette(colors);
 
 var createParts = (mesh) => {
-    console.log(mesh);
     mesh.traverse((o) => {
         if (o.type == 'Mesh') {
             let part = document.createElement('div');
@@ -59,15 +75,4 @@ function selectPart(e) {
         otherPart.classList.remove('active');
     }
     part.classList.add('active');
-}
-
-function setMaterial(parent, part, mtl) {
-    if (part == null) {
-        window.alert("Please select a part!");
-    }
-    parent.traverse((o) => {
-        if (o.type == 'Mesh' && o.name == part) {
-            o.material = mtl;
-        }
-    });
 }
